@@ -1,0 +1,28 @@
+2.3.1 :033 > users.all
+  User Load (4.5ms)  SELECT "users".* FROM "users"
++----+------------+-----------+------------------------+-----+-------------------------+-------------------------+
+| id | first_name | last_name | email_address          | age | created_at              | updated_at              |
++----+------------+-----------+------------------------+-----+-------------------------+-------------------------+
+| 1  | Leif       | Anderson  | leif@leif.com          | 51  | 2017-08-06 19:12:07 UTC | 2017-08-06 19:12:07 UTC |
+| 2  | Woodrow    | Wilson    | woodrow@wilson.com     | 176 | 2017-08-06 19:14:38 UTC | 2017-08-06 19:14:38 UTC |
+| 3  | Theodore   | Roosevelt | theodore@roosevelt.com | 194 | 2017-08-06 19:16:16 UTC | 2017-08-06 19:16:16 UTC |
++----+------------+-----------+------------------------+-----+-------------------------+-------------------------+
+3 rows in set
+2.3.1 :034 > exit
+
+
+2.3.1 :002 > user = User.new
++----+------------+-----------+---------------+-----+------------+------------+
+| id | first_name | last_name | email_address | age | created_at | updated_at |
++----+------------+-----------+---------------+-----+------------+------------+
+|    |            |           |               |     |            |            |
++----+------------+-----------+---------------+-----+------------+------------+
+1 row in set
+2.3.1 :003 > user.valid?
+ => false
+2.3.1 :004 > user.errors.full_messages
+ => ["First name can't be blank", "First name is too short (minimum is 2 characters)", "Last name can't be blank", "Last name is too short (minimum is 2 characters)", "Email address can't be blank", "Email address is too short (minimum is 2 characters)", "Age can't be blank", "Age is not a number"]
+2.3.1 :005 > user.age=3000000000
+ => 3000000000
+2.3.1 :006 > user.errors.full_messages
+ => ["First name can't be blank", "First name is too short (minimum is 2 characters)", "Last name can't be blank", "Last name is too short (minimum is 2 characters)", "Email address can't be blank", "Email address is too short (minimum is 2 characters)", "Age can't be blank", "Age is not a number"]
