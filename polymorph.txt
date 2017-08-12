@@ -1,0 +1,12 @@
+Polymorph assignment
+Leif Anderson 8/12/17
+
+rails g model ...
+ working on this .
+
+something like ...
+
+class Comment < ActiveRecord::Base; end
+class  Blog < Comment; end
+class  Post < Comment; end
+class  Message < Comment; end
